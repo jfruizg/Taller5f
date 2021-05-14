@@ -7,12 +7,17 @@
 <body>
 
 <form action="./create-book">
-    <input type="hidden" id="authorId" name="authorId" value ="<%= request.getParameter("authorId") %>">
-    Book title: <input type="text" id="title" name="title">
-    <br />
+
     Book ISBN: <input type="text" id="isbn" name="isbn">
     <br />
-    <input type="submit" value="Create book!">
+    Author id: <input type="text" id="author_id" name="author_id">
+    <br />
+    Book title: <input type="text" id="title" name="title">
+    <br />
+    Genre <input type="text" id="genre" name="genre">
+    <br />
+
+    <input type="submit" value="Delete Book">
 </form>
 
 </body>

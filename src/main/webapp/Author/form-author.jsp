@@ -9,6 +9,9 @@
 
 <form action="./create-author">
     Author name: <input type="text" id="name" name="name">
+    <br />
+    Author Country: <input type="text" id="country" name="country">
+    <br />
     <input type="submit" value="Create author!">
 </form>
 
