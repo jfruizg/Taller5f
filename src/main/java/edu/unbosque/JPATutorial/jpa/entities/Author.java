@@ -1,5 +1,7 @@
 package edu.unbosque.JPATutorial.jpa.entities;
 
+import antlr.collections.List;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +22,34 @@ public class Author {
     @Column(nullable = false)
     private String name;
 
-    // FetchType.EAGER: When we retrieve a Library, we'll also automatically retrieve all of its corresponding Books
-    // CascadeType.ALL: Propagates all operations from Author to Books
+    @Column(nullable = false)
+    private String country;
+
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Book> books = new ArrayList<>();
 
     public Author() {}
 
-    public Author(String name) {
+    public Author(String name, String country) {
         this.name = name;
+        this.country = country;
     }
 
     public Author(Integer authorId, String name) {
         this.authorId = authorId;
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public Integer getAuthorId() {
@@ -59,6 +75,10 @@ public class Author {
     public void addBook(Book book) {
         books.add(book);
         book.setAuthor(this);
+    }
+
+    public void deletBook(Book book){
+        books.remove(book);
     }
 
 }

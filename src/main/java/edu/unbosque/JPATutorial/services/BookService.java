@@ -43,7 +43,7 @@ public class BookService {
         return;
 
     }
-    public void addEdicion(Integer isbn, Edition edicion){
+    public void deleteBookAuthor(Integer isbn, Book book){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -51,12 +51,12 @@ public class BookService {
         authorRepository = new AuthorRepositoryImpl(entityManager);
         bookRepository = new BookRepositoryImpl(entityManager);
 
-        Optional<Book> author = bookRepository.findById(isbn);
+        Optional<Author> author = authorRepository.findById(isbn);
 
         author.ifPresent(a -> {
-            a.addEdition((edicion));
-            bookRepository.save(a);
+             a.deletBook(book);
         });
+
 
         entityManager.close();
         entityManagerFactory.close();

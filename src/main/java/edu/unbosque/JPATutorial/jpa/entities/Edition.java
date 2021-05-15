@@ -3,11 +3,14 @@ package edu.unbosque.JPATutorial.jpa.entities;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "Edition") // Optional
 @NamedQueries({
+        @NamedQuery(name = "Edition.findById",
+                query = "SELECT b FROM Edition b where b.editionId = :edition_id"),
         @NamedQuery(name = "Edition.findAll",
                 query = "SELECT b FROM Edition b")
 })
@@ -15,8 +18,8 @@ public class Edition {
 
     @Id
     @GeneratedValue
-    @Column(name = "edition_id")
-    private Integer editionId;
+    @OneToMany(mappedBy = "edition_id")
+    private List<Edition> editionId;
 
     @Column(name = "description")
     private String description;
@@ -24,7 +27,7 @@ public class Edition {
     @Column(name = "release_year")
     private Date releaseYear;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     private Book book;
 

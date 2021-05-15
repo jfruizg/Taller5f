@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class AuthorService {
@@ -41,14 +42,14 @@ public class AuthorService {
 
     }
 
-    public Author saveAuthor(String name) {
+    public Author saveAuthor(String name, String country) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
 
-        Author author = new Author(name);
+        Author author = new Author(name,country);
         Author persistedAuthor = authorRepository.save(author).get();
 
         entityManager.close();
@@ -68,6 +69,15 @@ public class AuthorService {
 
         entityManager.close();
         entityManagerFactory.close();
+
+    }
+    public void modifyAuthor(Integer authorId, String name){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+
 
     }
 

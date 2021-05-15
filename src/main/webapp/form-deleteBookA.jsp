@@ -1,17 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: juanf
-  Date: 12/05/2021
-  Time: 2:35 p. m.
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+e contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>JPA Tutorial</title>
 </head>
 <body>
 
-<h1>Hola</h1>
+<form action="./delete-book">
+    <input type="hidden" id="authorId" name="authorId" value ="<%= request.getParameter("authorId") %>">
+    Book title: <input type="text" id="title" name="title">
+    <br />
+    Book ISBN: <input type="text" id="isbn" name="isbn">
+    <br />
+    <input type="submit" value="Create book!">
+</form>
+
 </body>
 </html>
