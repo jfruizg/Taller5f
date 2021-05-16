@@ -1,108 +1,181 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>JSP Tutorial</title>
+<head>
+    <meta charset="UTF-8">
+    <title>JSP Tutorial</title>
 
-        <style>
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style>
-    </head>
-    <body>
+    <link href="CSS/CSS.css" rel="stylesheet"/>
 
-        <h1>Library Manager 2</h1>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
 
-        <button onclick="location.href='./form-library.jsp';">Create library</button>
-        <button onclick="location.href='./form-author.jsp';">Create author</button>
-        <button onclick="location.href='./form-deleteBookA.jsp';">Delete book author</button>
+<h1>Library Manager 2</h1>
 
 
-        <h3>Libraries</h3>
 
-        <table id="librariesTbl">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
 
-        <h3>Authors</h3>
+<div class="author">
+    <h3>Author</h3>
+    <ul>
+        <br/>
+            <button onclick="location.href='Author/form-author.jsp';">Create author</button>
 
-        <table id="authorsTbl">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th># Books</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <button onclick="location.href='Author/form-modifyAuthor.jsp';">Modify Author</button>
 
-        <script>
+            <button onclick="location.href='Author/form-deleteAuthor.jsp';">Delete author</button>
 
-            function printTable(elementId, servlet, columns, actions = []) {
+        <br/>
+    </ul>
+</div>
 
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState == 4) {
-                        var data = JSON.parse(xhr.responseText);
 
-                        var tbodyRef = document.getElementById(elementId).getElementsByTagName('tbody')[0];
+<div class="book">
 
-                        data.map(d => {
+    <h3>Libro</h3>
+    <ul>
+        <br/>
+        <button onclick="location.href='Book/form-book.jsp';">Create book</button>
 
-                            var newRow = tbodyRef.insertRow();
+        <button onclick="location.href='Book/form-modifyBook.jsp';">modify book</button>
 
-                            columns.map(c => {
-                                var cell = newRow.insertCell();
-                                var text = document.createTextNode(d[c]);
-                                cell.appendChild(text);
-                            });
+        <button onclick="location.href='Book/form-deleteBookA.jsp';">Delete book</button>
 
-                            if (actions.includes('create-book')) {
-                                var cell = newRow.insertCell();
-                                var action = document.createElement('button');
-                                action.setAttribute('onclick', 'location.href="./form-book.jsp?authorId=' + d['authorId'] + '";');
-                                var text = document.createTextNode('Create book');
-                                action.appendChild(text);
-                                cell.appendChild(action);
-                            }
+        <br/>
+    </ul>
 
-                            if (actions.includes('delete-author')) {
-                                var cell = newRow.insertCell();
-                                var action = document.createElement('button');
-                                action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
-                                var text = document.createTextNode('Delete author');
-                                action.appendChild(text);
-                                cell.appendChild(action);
-                            }
+</div>
 
-                        });
+<div class="edicion">
 
+    <h3>Edition</h3>
+    <ul>
+        <br/>
+        <button onclick="location.href='Library/form-library.jsp';">Create edition</button>
+
+        <button onclick="location.href='Author/form-author.jsp';">modify edition</button>
+
+        <button onclick="location.href='Book/form-deleteBookA.jsp';">Delete edition</button>
+
+        <br/>
+    </ul>
+
+</div>
+
+<div class="libreria">
+
+    <h3>Librerias</h3>
+    <ul>
+        <br/>
+        <button onclick="location.href='Library/form-library.jsp';">Create Librerias</button>
+
+        <button onclick="location.href='Author/form-author.jsp';">modify Librerias</button>
+
+        <button onclick="location.href='Book/form-deleteBookA.jsp';">Delete Librerias</button>
+
+        <br/>
+    </ul>
+
+</div>
+
+<h3>Libraries</h3>
+
+<table id="librariesTbl">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<h3>Authors</h3>
+
+<table id="authorsTbl">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th># Books</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+
+    function printTable(elementId, servlet, columns, actions = []) {
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var data = JSON.parse(xhr.responseText);
+
+                var tbodyRef = document.getElementById(elementId).getElementsByTagName('tbody')[0];
+
+                data.map(d => {
+
+                    var newRow = tbodyRef.insertRow();
+
+                    columns.map(c => {
+                        var cell = newRow.insertCell();
+                        var text = document.createTextNode(d[c]);
+                        cell.appendChild(text);
+                    });
+
+                    if (actions.includes('create-book')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./form-book.jsp?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('Create book');
+                        action.appendChild(text);
+                        cell.appendChild(action);
                     }
-                }
-                xhr.open('GET', '${pageContext.request.contextPath}/' + servlet, true);
-                xhr.send(null);
+
+                    if (actions.includes('delete-author')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('Delete author');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+                    if (actions.includes('delete-book')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        // action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('Delete book');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+
+                });
 
             }
+        }
+        xhr.open('GET', '${pageContext.request.contextPath}/' + servlet, true);
+        xhr.send(null);
 
-            // Printing libraries
-            printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
+    }
 
-            // Printing authors
-            printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author']);
+    // Printing libraries
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
 
-        </script>
+    // Printing authors
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author', 'delet-book']);
 
-    </body>
+</script>
+
+</body>
 </html>
