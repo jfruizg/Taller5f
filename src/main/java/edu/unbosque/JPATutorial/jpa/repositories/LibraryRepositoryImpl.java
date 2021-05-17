@@ -1,6 +1,5 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
-import edu.unbosque.JPATutorial.jpa.entities.Author;
 import edu.unbosque.JPATutorial.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
@@ -13,6 +12,17 @@ public class LibraryRepositoryImpl implements LibraryRepository {
 
     public LibraryRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    public Optional<Library> findById(Integer library_id){
+        Library library = entityManager.find(Library.class, library_id;
+        return library != null ? Optional.of(library) : Optional.empty();
+    }
+
+    @Override
+    public Optional<Library> findByName(String name) {
+        Library library = entityManager.find(Library.class, name);
+        return library != null ? Optional.of(library) : Optional.empty();
     }
 
     @Override
@@ -32,18 +42,18 @@ public class LibraryRepositoryImpl implements LibraryRepository {
         }
         return Optional.empty();
     }
-    public void deleteById(String name) {
-        Author author = entityManager.find(Author.class, name);
-        if (author != null) {
+    public void deleteById(Integer library_id) {
+        Library library = entityManager.find(Library.class, library_id);
+        if (library != null) {
             try {
 
                 entityManager.getTransaction().begin();
 
-                author.getBooks().forEach(book -> {
-                    entityManager.remove(book);
+                library.getEditions().forEach(edition -> {
+                    entityManager.remove(edition);
                 });
 
-                entityManager.remove(author);
+                entityManager.remove(library);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {
@@ -51,18 +61,18 @@ public class LibraryRepositoryImpl implements LibraryRepository {
             }
         }
     }
-    public void modifiById(Integer id){
-        Author author = entityManager.find(Author.class, id);
-        if (author != null) {
+    public void modifyById(Integer id,String name){
+        Library library = entityManager.find(Library.class, id);
+        if (library != null) {
             try {
 
                 entityManager.getTransaction().begin();
-
-                author.getBooks().forEach(book -> {
-                    entityManager.refresh(book);
+                library.setName(name);
+                library.getEditions().forEach(edition -> {
+                    entityManager.refresh(edition);
                 });
 
-                entityManager.merge(author);
+                entityManager.merge(library);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {
