@@ -20,7 +20,7 @@ public class BookService {
     AuthorRepository authorRepository;
     BookRepository bookRepository;
 
-    public void saveBook(String title, String isbn, Integer authorId, String descripcion) {
+    public void saveBook(String title, String isbn, Integer authorId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -33,7 +33,7 @@ public class BookService {
 
 
         author.ifPresent(a -> {
-            a.addBook(new Book(title, isbn,descripcion));
+            a.addBook(new Book(title, isbn));
             authorRepository.save(a);
         });
 

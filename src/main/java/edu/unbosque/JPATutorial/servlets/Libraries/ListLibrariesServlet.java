@@ -1,8 +1,8 @@
-package edu.unbosque.JPATutorial.servlets;
+package edu.unbosque.JPATutorial.servlets.Libraries;
 
 import com.google.gson.Gson;
-import edu.unbosque.JPATutorial.services.AuthorService;
-import edu.unbosque.JPATutorial.servlets.pojos.AuthorPOJO;
+import edu.unbosque.JPATutorial.services.LibraryService;
+import edu.unbosque.JPATutorial.servlets.pojos.LibraryPOJO;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,21 +12,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "listAuthorsServlet", value = "/list-authors")
-public class ListAuthorsServlet extends HttpServlet {
+@WebServlet(name = "listLibrariesServlet", value = "/list-libraries")
+public class ListLibrariesServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        AuthorService authorService = new AuthorService();
-        List<AuthorPOJO> authors =  authorService.listAuthors();
+        LibraryService libraryService = new LibraryService();
+        List<LibraryPOJO> libraries =  libraryService.listLibraries();
 
-        String authorsJsonString = new Gson().toJson(authors);
+        String librariesJsonString = new Gson().toJson(libraries);
 
         PrintWriter out = response.getWriter();
-        out.print(authorsJsonString);
+        out.print(librariesJsonString);
         out.flush();
 
     }
