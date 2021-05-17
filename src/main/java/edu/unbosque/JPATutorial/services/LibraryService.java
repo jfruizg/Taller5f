@@ -57,5 +57,22 @@ public class LibraryService {
         return;
 
     }
+    public void modifyLibrary(String name){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        libraryRepository = new LibraryRepositoryImpl(entityManager);
+
+        Library library = new Library(name);
+        Library persistedLibrary = libraryRepository.save(library).get();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return;
+
+
+    }
 
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="./modify-Authoe">
+<form action="./modify-Author">
     Id: <input type="text" id="id" name="id">
     <br />
     Name: <input type="text" id="name" name="name">

@@ -1,4 +1,4 @@
-package edu.unbosque.JPATutorial.servlets;
+package edu.unbosque.JPATutorial.servlets.Author;
 
 import edu.unbosque.JPATutorial.services.AuthorService;
 
@@ -17,8 +17,10 @@ public class CreateAuthorServlet extends HttpServlet {
 
         String name = request.getParameter("name");
 
+        String country = request.getParameter("country");
+
         AuthorService authorService = new AuthorService();
-        authorService.saveAuthor(name);
+        authorService.saveAuthor(name,country);
 
         response.sendRedirect("./index.jsp");
     }

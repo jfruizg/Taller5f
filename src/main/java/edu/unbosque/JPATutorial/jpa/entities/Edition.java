@@ -19,7 +19,7 @@ public class Edition {
     @Id
     @GeneratedValue
     @OneToMany(mappedBy = "edition_id")
-    private List<Edition> editionId;
+    private Integer editionId;
 
     @Column(name = "description")
     private String description;

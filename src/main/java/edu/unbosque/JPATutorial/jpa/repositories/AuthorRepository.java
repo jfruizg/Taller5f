@@ -15,4 +15,6 @@ public interface AuthorRepository {
 
     void deleteById(Integer id);
 
+    void modifiById(Integer id);
+
 }

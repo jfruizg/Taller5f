@@ -1,4 +1,4 @@
-package edu.unbosque.JPATutorial.servlets;
+package edu.unbosque.JPATutorial.servlets.Author;
 
 import edu.unbosque.JPATutorial.services.AuthorService;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "deleteAuthorServlet", value = "/delete-author")
+@WebServlet(name = "deleteAuthorServlet", value = "/delete-Author")
 public class DeleteAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

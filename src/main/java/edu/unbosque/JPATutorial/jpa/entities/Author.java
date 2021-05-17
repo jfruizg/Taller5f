@@ -1,7 +1,5 @@
 package edu.unbosque.JPATutorial.jpa.entities;
 
-import antlr.collections.List;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +77,11 @@ public class Author {
 
     public void deletBook(Book book){
         books.remove(book);
+    }
+    public void modifyBook(Book book){
+        books.remove(book);
+        books.add(book);
+        book.setAuthor(this);
     }
 
 }

@@ -30,7 +30,7 @@ public class Book {
     private Author author;
 
     @OneToMany(mappedBy = "book_id")
-    private List<Edition> edition = new ArrayList<>;
+    private List<Edition> edition = new ArrayList<>();
 
     public Book() {}
 
@@ -44,6 +44,7 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
     }
+
 
     public Integer getBookId() {
         return bookId;
@@ -77,10 +78,10 @@ public class Book {
         this.author = author;
     }
 
-    public Edition getEdition() { return edition; }
+    public List<Edition> getEdition() { return edition; }
 
     public void addEdition(Edition edition) {
-        this.edition = edition;
+        this.edition = (List<Edition>) edition;
         edition.setBook(this);
     }
     public void removeEdition(Edition edition){

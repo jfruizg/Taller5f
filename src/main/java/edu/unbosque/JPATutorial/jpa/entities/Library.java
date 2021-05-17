@@ -33,6 +33,10 @@ public class Library {
         this.name = name;
     }
 
+    public void setEditions(Set<Edition> editions) {
+        this.editions = editions;
+    }
+
     public Library(String name) {
         this.name = name;
     }

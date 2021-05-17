@@ -8,13 +8,17 @@ public class AuthorPOJO {
 
     private Integer numBooks;
 
+    private String country;
+
     public AuthorPOJO() { }
 
     public AuthorPOJO(Integer authorId, String name, Integer numBooks) {
         this.authorId = authorId;
         this.name = name;
         this.numBooks = numBooks;
+        this.country = country;
     }
+
 
     public Integer getAuthorId() {
         return authorId;

@@ -32,5 +32,46 @@ public class LibraryRepositoryImpl implements LibraryRepository {
         }
         return Optional.empty();
     }
+    public void deleteById(String name) {
+        Author author = entityManager.find(Author.class, name);
+        if (author != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+
+                author.getBooks().forEach(book -> {
+                    entityManager.remove(book);
+                });
+
+                entityManager.remove(author);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void modifiById(Integer id){
+        Author author = entityManager.find(Author.class, id);
+        if (author != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+
+                author.getBooks().forEach(book -> {
+                    entityManager.refresh(book);
+                });
+
+                entityManager.merge(author);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
 
 }

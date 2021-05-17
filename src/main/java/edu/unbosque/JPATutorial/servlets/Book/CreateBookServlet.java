@@ -1,4 +1,4 @@
-package edu.unbosque.JPATutorial.servlets;
+package edu.unbosque.JPATutorial.servlets.Book;
 
 import edu.unbosque.JPATutorial.services.BookService;
 

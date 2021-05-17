@@ -20,7 +20,7 @@ public class BookService {
     AuthorRepository authorRepository;
     BookRepository bookRepository;
 
-    public void saveBook(String title, String isbn, Integer authorId) {
+    public void saveBook(String title, String isbn, Integer authorId, String descripcion) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -33,7 +33,7 @@ public class BookService {
 
 
         author.ifPresent(a -> {
-            a.addBook(new Book(title, isbn));
+            a.addBook(new Book(title, isbn,descripcion));
             authorRepository.save(a);
         });
 
@@ -66,11 +66,30 @@ public class BookService {
 
 
     }
-    public void deleteBookAuthor(){
 
+    public void modifyBook(Integer isbn, Book book){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        bookRepository = new BookRepositoryImpl(entityManager);
+
+        Optional<Author> author = authorRepository.findById(isbn);
+
+        author.ifPresent(a -> {
+            a.modifyBook(book);
+        });
+
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return;
 
 
 
     }
+
 
 }
