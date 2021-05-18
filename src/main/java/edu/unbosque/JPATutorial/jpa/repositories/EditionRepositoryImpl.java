@@ -31,4 +31,5 @@ public class EditionRepositoryImpl implements EditionRepository {
         }
         return Optional.empty();
     }
+
 }

@@ -78,10 +78,6 @@ public class Author {
     public void deletBook(Book book){
         books.remove(book);
     }
-    public void modifyBook(Book book){
-        books.remove(book);
-        books.add(book);
-        book.setAuthor(this);
-    }
+
 
 }

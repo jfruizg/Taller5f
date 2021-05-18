@@ -71,13 +71,13 @@ public class AuthorService {
         entityManagerFactory.close();
 
     }
-    public void modifyAuthor(Integer authorId, String name){
+    public void modifyAuthor(Integer authorId, String name,String country){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
-        authorRepository.modifiById(authorId,"","");
+        authorRepository.modifiById(authorId,name,country);
 
         entityManager.close();
         entityManagerFactory.close();

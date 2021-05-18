@@ -173,7 +173,7 @@
     printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author', 'delet-book']);
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name','country' ,'numBooks']);
 
 </script>
 

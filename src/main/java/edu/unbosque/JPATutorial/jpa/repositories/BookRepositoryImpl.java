@@ -1,5 +1,6 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
+import edu.unbosque.JPATutorial.jpa.entities.Author;
 import edu.unbosque.JPATutorial.jpa.entities.Book;
 
 import javax.persistence.EntityManager;
@@ -47,6 +48,45 @@ public class BookRepositoryImpl implements BookRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    public void modifyBook(Integer id, String title, String bookISN, String genre) {
+        Book book = entityManager.find(Book.class, bookISN);
+        if (book != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+               book.setTitle(title);
+               book.setGenre(genre);
+
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+    public void deleteBook(String bookISN){
+        Book book = entityManager.find(Book.class, bookISN);
+
+        if (book != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+
+                book.getEdition().forEach(edition->{
+                    entityManager.remove(edition);
+
+                });
+
+                entityManager.remove(book);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

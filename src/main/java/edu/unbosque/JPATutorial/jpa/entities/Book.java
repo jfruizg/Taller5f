@@ -23,6 +23,9 @@ public class Book {
     @Column(name = "isbn_number")
     private String isbn;
 
+    @Column(name = "genre")
+    private String genre;
+
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
@@ -77,6 +80,18 @@ public class Book {
     }
 
     public List<Edition> getEdition() { return edition; }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setEdition(List<Edition> edition) {
+        this.edition = edition;
+    }
 
     public void addEdition(Edition edition) {
         this.edition.add(edition);

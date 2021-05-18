@@ -17,4 +17,6 @@ public interface BookRepository {
 
     Optional<Book> save(Book book);
 
+    void modifyBook(Integer id,String title, String bookISN, String genre);
+
 }

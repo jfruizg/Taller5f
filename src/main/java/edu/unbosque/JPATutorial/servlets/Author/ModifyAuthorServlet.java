@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "deleteAuthorServlet", value = "/modify-Author")
+@WebServlet(name = "modifyAuthorServlet", value = "/modify-Author")
 public class ModifyAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -17,8 +17,12 @@ public class ModifyAuthorServlet extends HttpServlet {
 
         Integer authorId = Integer.parseInt(request.getParameter("id"));
 
+        String name = request.getParameter("name");
+
+        String country = request.getParameter("country");
+
         AuthorService authorService = new AuthorService();
-        authorService.modifyAuthor(authorId,"hola");
+        authorService.modifyAuthor(authorId,name,country);
 
         response.sendRedirect("./index.jsp");
     }
