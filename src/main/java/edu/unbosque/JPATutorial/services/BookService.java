@@ -95,18 +95,17 @@ public class BookService {
 
     }
 
-    public void modifyBook(Integer isbn, Book book){
-
+    public void modifyBook(Integer isbn){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
         bookRepository = new BookRepositoryImpl(entityManager);
 
-        Optional<Author> author = authorRepository.findById(isbn);
+        Optional<Book> author = bookRepository.findById(isbn);
 
-        author.ifPresent(a -> {
-            a.modifyBook(book);
+        Book.ifPresent(a -> {
+            a.
         });
 
 
