@@ -6,8 +6,8 @@ import java.util.Date;
 @Entity
 @Table(name = "Rent")
 @NamedQueries({
-        @NamedQuery(name = "Edition.findAll",
-                query = "SELECT b FROM Edition b")
+        @NamedQuery(name = "rent.findAll",
+                query = "SELECT b FROM Rent b")
 })
 public class Rent {
 

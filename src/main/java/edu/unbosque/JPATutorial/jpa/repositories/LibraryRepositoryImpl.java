@@ -15,7 +15,7 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
     public Optional<Library> findById(Integer library_id){
-        Library library = entityManager.find(Library.class, library_id;
+        Library library = entityManager.find(Library.class, library_id);
         return library != null ? Optional.of(library) : Optional.empty();
     }
 

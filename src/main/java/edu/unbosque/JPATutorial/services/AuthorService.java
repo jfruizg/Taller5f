@@ -77,7 +77,7 @@ public class AuthorService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
-        authorRepository.modifiById(authorId);
+        authorRepository.modifiById(authorId,"","");
 
         entityManager.close();
         entityManagerFactory.close();

@@ -1,7 +1,10 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
+
+
+
+
 import edu.unbosque.JPATutorial.jpa.entities.Author;
-import edu.unbosque.JPATutorial.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -63,18 +66,14 @@ public class AuthorRepositoryImpl implements AuthorRepository {
             }
         }
     }
-    public void modifiById(Integer id){
+    public void modifiById(Integer id, String name , String country){
         Author author = entityManager.find(Author.class, id);
         if (author != null) {
             try {
 
                 entityManager.getTransaction().begin();
-
-                author.getBooks().forEach(book -> {
-                    entityManager.refresh(book);
-                });
-
-                entityManager.merge(author);
+                author.setCountry(country);
+                author.setName(name);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {

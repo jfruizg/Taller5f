@@ -1,16 +1,11 @@
 package edu.unbosque.JPATutorial.jpa.entities;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "Edition") // Optional
 @NamedQueries({
-        @NamedQuery(name = "Edition.findById",
-                query = "SELECT b FROM Edition b where b.editionId = :edition_id"),
         @NamedQuery(name = "Edition.findAll",
                 query = "SELECT b FROM Edition b")
 })
@@ -18,8 +13,9 @@ public class Edition {
 
     @Id
     @GeneratedValue
-    @OneToMany(mappedBy = "edition_id")
+    @Column(name = "edition_id")
     private Integer editionId;
+
 
     @Column(name = "description")
     private String description;
@@ -35,6 +31,10 @@ public class Edition {
     // CascadeType.PERSIST: When we save a superhero, its movies will also be saved
     @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Library> libraries = new HashSet<>();
+
+    @OneToMany(mappedBy = "edition_id", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<Rent> rents = new ArrayList<>();
+
 
     public Edition() {}
 
@@ -90,4 +90,15 @@ public class Edition {
         library.getEditions().add(this);
     }
 
+    public void setLibraries(Set<Library> libraries) {
+        this.libraries = libraries;
+    }
+
+    public List<Rent> getRents() {
+        return rents;
+    }
+
+    public void setRents(List<Rent> rents) {
+        this.rents = rents;
+    }
 }

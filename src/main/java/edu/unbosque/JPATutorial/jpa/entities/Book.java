@@ -8,9 +8,7 @@ import javax.persistence.*;
 @Table(name = "Book") // Optional
 @NamedQueries({
         @NamedQuery(name = "Book.findByTitle",
-                query = "SELECT b FROM Book b WHERE b.title = :title"),
-        @NamedQuery(name = "Book.findAll",
-                query = "SELECT b FROM Book b")
+                query = "SELECT b FROM Book b WHERE b.title = :title")
 })
 public class Book {
 
@@ -29,7 +27,7 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @OneToMany(mappedBy = "book_id")
+    @OneToMany(mappedBy = "book")
     private List<Edition> edition = new ArrayList<>();
 
     public Book() {}
@@ -81,10 +79,17 @@ public class Book {
     public List<Edition> getEdition() { return edition; }
 
     public void addEdition(Edition edition) {
-        this.edition = (List<Edition>) edition;
+        this.edition.add(edition);
         edition.setBook(this);
     }
-    public void removeEdition(Edition edition){
+
+    public void deletEdition(Edition edition){
+        this.edition.remove(edition);
+    }
+    public void modifyEdition(Edition edition){
+        this.edition.remove(edition);
+        this.edition.add(edition);
+        edition.setBook(this);
     }
 
 }
