@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "deleteAuthorServlet", value = "/delete-Author")
-public class DeleteEdition extends HttpServlet {
+@WebServlet(name = "ModfyEdicionServlet", value = "/modify-Edition")
+public class ModfyEdicionServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -19,7 +19,7 @@ public class DeleteEdition extends HttpServlet {
         Integer editionId = Integer.parseInt(request.getParameter("editionId"));
 
         EditionService editionService = new EditionService();
-        editionService.deleteBookAuthor(editionId,null);
+        editionService.modifyBook(editionId,null);
 
         response.sendRedirect("./index.jsp");
     }
