@@ -104,9 +104,6 @@ public class BookService {
 
         Optional<Book> author = bookRepository.findById(isbn);
 
-        Book.ifPresent(a -> {
-            a.
-        });
 
 
         entityManager.close();
