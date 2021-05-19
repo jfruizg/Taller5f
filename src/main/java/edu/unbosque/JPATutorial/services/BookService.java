@@ -95,7 +95,7 @@ public class BookService {
 
     }
 
-    public void modifyBook(Integer isbn){
+    public void modifyBook(Integer authorId, Object o, Integer isbn){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 

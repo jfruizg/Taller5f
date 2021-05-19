@@ -25,7 +25,7 @@ public class ModifyBook extends HttpServlet {
         Integer authorId = Integer.parseInt(request.getParameter("id"));
 
         BookService bookService = new BookService();
-        bookService.modifyBook(authorId,null);
+        bookService.modifyBook(authorId,null,null);
 
         response.sendRedirect("./index.jsp");
     }
