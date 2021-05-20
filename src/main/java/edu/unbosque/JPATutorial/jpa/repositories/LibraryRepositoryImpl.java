@@ -1,6 +1,9 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
+import edu.unbosque.JPATutorial.jpa.entities.Author;
+import edu.unbosque.JPATutorial.jpa.entities.Book;
 import edu.unbosque.JPATutorial.jpa.entities.Library;
+import edu.unbosque.JPATutorial.jpa.entities.Rent;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -42,6 +45,25 @@ public class LibraryRepositoryImpl implements LibraryRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public void modificarLibreria(String nuevoNombre, String name) {
+        Library library = entityManager.find(Library.class, name);
+        if (library != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+                library.setName(nuevoNombre);
+
+                entityManager.merge(library);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void deleteById(Integer library_id) {
         Library library = entityManager.find(Library.class, library_id);
         if (library != null) {
@@ -61,18 +83,21 @@ public class LibraryRepositoryImpl implements LibraryRepository {
             }
         }
     }
-    public void modifyById(Integer id,String name){
-        Library library = entityManager.find(Library.class, id);
+
+
+    public void deleteLibrary(String name) {
+        Library library = entityManager.find(Library.class, name);
+
         if (library != null) {
             try {
 
                 entityManager.getTransaction().begin();
-                library.setName(name);
-                library.getEditions().forEach(edition -> {
-                    entityManager.refresh(edition);
+                library.getEditions().forEach(edition->{
+                    entityManager.remove(edition);
+
                 });
 
-                entityManager.merge(library);
+                entityManager.remove(library);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {

@@ -51,7 +51,6 @@ public class RentRepositoryImpI implements RentRepository{
             try {
 
                 entityManager.getTransaction().begin();
-
                 entityManager.remove(rent);
                 entityManager.getTransaction().commit();
 
@@ -60,6 +59,5 @@ public class RentRepositoryImpI implements RentRepository{
             }
         }
     }
-
 
 }

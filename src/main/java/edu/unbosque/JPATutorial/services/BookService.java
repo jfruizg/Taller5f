@@ -38,17 +38,15 @@ public class BookService {
         List<BookPOJO> booksPOJO = new ArrayList<>();
         for (Book book: books){
             booksPOJO.add(new BookPOJO(
+                    book.getBookId(),
                     book.getTitle(),
-                    Integer.parseInt(book.getIsbn()),
-                    book.getAuthor()+"",
-                    book.getEdition()+"",
-                    book.getBookId()
+                    book.getIsbn(),
+                    book.getAuthor().getAuthorId(),
+                    book.getGenre()
             ));
         }
         return  booksPOJO;
     }
-
-
 
     public void saveBook(String title, String isbn, Integer authorId) {
 

@@ -21,7 +21,7 @@ public class CreateAuthorServlet extends HttpServlet {
         AuthorService authorService = new AuthorService();
         authorService.saveAuthor(name,country);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./author.jsp");
     }
 
 }

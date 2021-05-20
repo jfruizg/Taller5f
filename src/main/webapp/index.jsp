@@ -116,9 +116,10 @@
 <table id="bookTbl">
     <thead>
     <tr>
-        <th>Ttile</th>
-        <th>ISB</th>
-        <th>Author id</th>
+        <th>Book ID</th>
+        <th>Title</th>
+        <th>Isbn Number</th>
+        <th> author_id</th>
         <th>Genre</th>
 
     </tr>
@@ -191,7 +192,8 @@
     // Printing authors
     printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId','name','country','numBooks']);
 
-    printTable(elementId = 'bookTbl', servlet = 'List-books', columns = ['Title','ISB','Author id','Genre']);
+    printTable(elementId = 'bookTbl', servlet = 'List-books', columns = ['bnookID','title','isbn_number','author_id','genre']);
+
 
 </script>
 
