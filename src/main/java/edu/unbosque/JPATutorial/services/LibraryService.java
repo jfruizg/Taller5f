@@ -57,13 +57,13 @@ public class LibraryService {
         return;
 
     }
-    public void modifyLibrary(Integer library_id, String name,String nuevoNombre){
+    public void modifyLibrary(Integer library_id,String nuevoNombre){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         libraryRepository = new LibraryRepositoryImpl(entityManager);
-        libraryRepository.modificarLibreria(name,nuevoNombre);
+        libraryRepository.modificarLibreria(library_id,nuevoNombre);
 
         entityManager.close();
         entityManagerFactory.close();
@@ -72,7 +72,7 @@ public class LibraryService {
 
 
     }
-    public void deleteLibrary(String nombre){
+    public void deleteLibrary(Integer nombre){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 

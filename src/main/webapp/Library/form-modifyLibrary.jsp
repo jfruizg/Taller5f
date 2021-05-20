@@ -1,3 +1,7 @@
+<<<<<<< HEAD:src/main/webapp/form-deleteBookA.jsp
+e contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+=======
 <%--
   Created by IntelliJ IDEA.
   User: juanf
@@ -17,7 +21,8 @@
     <meta name="description" content="Per-ctizens un lugar donde va a poder regstrar a tu amigo de 4 patas  ">
     <meta name="author" content="Andres Nuñez, Juan Felipe Ruiz">
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
@@ -28,17 +33,20 @@
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
+                <li><a href="../Edition.jsp">Librerias</a></li>
+                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
 </header>
 <body>
 
-Name: <input type="text" id="title" name="name">
+<form action="../modify-Library">
+    library Id: <input type="text" id="title" class="form-control" name="id">
 
-<br/>
-Name replaced: <input type="text" id="title_replaced" name="name_replaced">
-<input type="submit" value="Create library!">
-
+    <br/>
+    Name replaced: <input type="text" id="title_replaced" class="form-control" name="name_replaced">
+    <input type="submit" value="Create library!">
+</form>
 </body>
 </html>

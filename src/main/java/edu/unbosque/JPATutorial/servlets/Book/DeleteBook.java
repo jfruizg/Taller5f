@@ -23,7 +23,7 @@ public class DeleteBook extends HttpServlet {
         BookService bookService = new BookService();
         bookService.deleteBookAuthor(bookID);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./book.jsp");
     }
 
 

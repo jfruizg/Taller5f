@@ -85,7 +85,7 @@
 
 <h3>Libraries</h3>
 
-<table id="librariesTbl">
+<table class="tablas" id="librariesTbl">
     <thead>
     <tr>
         <th>Id</th>

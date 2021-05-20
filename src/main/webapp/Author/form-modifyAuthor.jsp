@@ -22,6 +22,8 @@
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
+                <li><a href="../Edition.jsp">Librerias</a></li>
+                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
@@ -29,11 +31,11 @@
 <body>
 
 <form action="../modify-Author">
-    Id: <input type="text" id="id" name="id">
+    Id: <input type="text" id="id" class="form-control" name="id">
     <br />
-    Name: <input type="text" id="name" name="name">
+    Name: <input type="text" id="name" class="form-control" name="name">
     <br />
-    Country: <input type="text" id="country" name="country">
+    Country: <input type="text" id="country" class="form-control" name="country">
     <br />
     <input type="submit" value="Modify">
 </form>

@@ -32,6 +32,8 @@ e contentType="text/html;charset=UTF-8" language="java" %>
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
+                <li><a href="../Edition.jsp">Librerias</a></li>
+                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
@@ -41,7 +43,7 @@ e contentType="text/html;charset=UTF-8" language="java" %>
 
 <form action="../delete-library">
 
-    Name: <input type="text" id="title" name="name">
+    ID: <input type="text" class="form-control" id="title" name="id">
     <input type="submit" value="Create library!">
 
 

@@ -21,6 +21,8 @@
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
+                <li><a href="../Edition.jsp">Librerias</a></li>
+                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
@@ -29,15 +31,15 @@
 
 <form action="../modify-book">
 
-    Book id: <input type="text" id="id" name="id">
+    Book id: <input type="text" class="form-control" id="id" name="id">
     <br />
-    Book ISBN: <input type="text" id="isbn" name="isbn">
+    Book ISBN: <input type="text" class="form-control" id="isbn" name="isbn">
     <br />
-    Author id: <input type="text" id="author_id" name="author_id">
+    Author id: <input type="text" class="form-control" id="author_id" name="author_id">
     <br />
-    Book title: <input type="text" id="title" name="title">
+    Book title: <input type="text" class="form-control" id="title" name="title">
     <br />
-    Genre <input type="text" id="genre" name="genre">
+    Genre <input type="text" id="genre" class="form-control" name="genre">
     <br />
 
     <input type="submit" value="Delete Book">

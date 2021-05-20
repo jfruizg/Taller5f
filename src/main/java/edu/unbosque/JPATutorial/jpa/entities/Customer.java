@@ -7,6 +7,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "Customer") // Optional
+@NamedQueries({
+        @NamedQuery(name = "Customer.findByName",
+                query = "SELECT a FROM Customer a WHERE a.first_name = :name")
+})
 
 public class Customer {
 
@@ -41,6 +45,13 @@ public class Customer {
 
     }
 
+    public Customer(String email, String first_name, String last_name, String gender, String age) {
+        this.email = email;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.age = age;
+    }
 
     public String getAuthorId() {
         return first_name;

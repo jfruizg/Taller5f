@@ -20,7 +20,7 @@ public class DeleteAuthorServlet extends HttpServlet {
         AuthorService authorService = new AuthorService();
         authorService.deleteAuthor(authorId);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./author.jsp");
     }
 
 }

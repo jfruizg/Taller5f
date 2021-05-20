@@ -16,12 +16,13 @@ public class DeleteEdition extends HttpServlet {
 
         response.setContentType("text/html");
 
-        Integer editionId = Integer.parseInt(request.getParameter("editionId"));
+        Integer editionId = Integer.parseInt(request.getParameter("edition_id"));
 
         EditionService editionService = new EditionService();
-        editionService.deleteEdition(editionId,null);
+        editionService.deleteEdition(editionId);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./Edition.jsp");
+
     }
 
 }

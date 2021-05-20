@@ -24,7 +24,7 @@ public class ModifyAuthorServlet extends HttpServlet {
         AuthorService authorService = new AuthorService();
         authorService.modifyAuthor(authorId,name,country);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./author.jsp");
     }
 
 }

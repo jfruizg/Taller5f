@@ -21,26 +21,27 @@
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
+                <li><a href="../Edition.jsp">Librerias</a></li>
+                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
 </header>
-<body>
 
 <form action="../create-book">
-    A id: <input type="text" id="id" name="id">
+    A id: <input type="text" class="form-control" id="id" name="id">
     <br />
-     Author id: <input type="text" id="author_id" name="author_id">
+     Author id: <input type="text" class="form-control" id="author_id" name="author_id">
     <br />
-    Book title: <input type="text" id="title" name="title">
+    Book title: <input type="text" class="form-control" id="title" name="title">
     <br />
-    Book ISBN: <input type="text" id="isbn" name="isbn">
+    Book ISBN: <input type="text" class="form-control" id="isbn" name="isbn">
     <br />
-    Genre <input type="text" id="genre" name="genre">
+    Genre <input type="text" class="form-control" id="genre" name="genre">
     <br />
-    Descripcion <input type="text" id="descripcion" name="descripcion">
+    Descripcion <input type="text" class="form-control" id="descripcion" name="descripcion">
     <br />
-    year <input type="text" id="year" name="year">
+    year <input type="text" class="form-control" id="year" name="year">
     <br />
     <input type="submit" value="Create book!">
 </form>

@@ -1,5 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: juanf
+  Date: 19/05/2021
+  Time: 11:53 p. m.
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><html lang="en">
 <head>
 
     <link href="../styleFormatoDatos.css" rel="stylesheet"/>
@@ -21,19 +27,25 @@
                 <li><a href="../author.jsp">Autores</a></li>
                 <li><a href="../book.jsp">Book</a></li>
                 <li><a href="../Library.jsp">Librerias</a></li>
-                <li><a href="../Edition.jsp">Librerias</a></li>
-                <li><a href="../customer.jsp">Customer</a></li>
             </ul>
         </nav>
     </div>
 </header>
-    <body>
+<body>
 
-        <form action="../create-library">
+<form action="../creat-edicion">
 
-            Library name: <input type="text" class="form-control" id="name" name="name">
-            <input type="submit" value="Create library!">
-        </form>
+    Edition id: <input type="text" class="form-control" id="id" name="edition_id">
+    <br />
+    Descripcion: <input type="text" class="form-control" id="isbn" name="descripcion">
+    <br />
+    year: <input type="text" class="form-control" id="author_id" name="year">
+    <br />
+    Book id: <input type="text" class="form-control" id="title" name="book_id">
 
-    </body>
+
+    <input type="submit" value="Creat Edition">
+</form>
+
+</body>
 </html>

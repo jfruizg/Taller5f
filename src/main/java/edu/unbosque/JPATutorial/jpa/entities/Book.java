@@ -48,7 +48,6 @@ public class Book {
         this.isbn = isbn;
     }
 
-
     public Integer getBookId() {
         return bookId;
     }

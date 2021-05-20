@@ -13,5 +13,7 @@ public interface EditionRepository {
 
     Optional<Edition> save(Edition edition);
 
-    void deleteEdition(Integer id , Edition edition);
+    void deleteEdition(Integer id);
+
+    void modifyEdition(Integer id, String descripcion, Integer year);
 }

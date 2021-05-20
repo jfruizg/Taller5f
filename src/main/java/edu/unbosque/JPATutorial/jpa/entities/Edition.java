@@ -22,10 +22,7 @@ public class Edition {
     private String description;
 
     @Column(name = "release_year")
-    private LocalDate releaseYear;
-
-    @Column(name = "genre")
-    private String genre;
+    private Integer releaseYear;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
@@ -42,16 +39,15 @@ public class Edition {
 
     public Edition() {}
 
-    public Edition(String description, LocalDate releaseYear) {
+    public Edition(String description, Integer releaseYear) {
         this.description = description;
         this.releaseYear = releaseYear;
     }
 
-    public Edition(Integer editionId, String description, LocalDate releaseYear, String genre) {
+    public Edition(Integer edition_id, String description, Integer releaseYear) {
         this.editionId = editionId;
         this.description = description;
         this.releaseYear = releaseYear;
-        this.genre = genre;
     }
 
     public Integer getEditionId() {
@@ -70,11 +66,11 @@ public class Edition {
         this.description = description;
     }
 
-    public LocalDate getReleaseYear() {
+    public Integer getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(LocalDate releaseYear) {
+    public void setReleaseYear(Integer releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -93,14 +89,6 @@ public class Edition {
     public void addLibrary(Library library) {
         libraries.add(library);
         library.getEditions().add(this);
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public void setLibraries(Set<Library> libraries) {

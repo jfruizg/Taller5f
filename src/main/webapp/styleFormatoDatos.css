@@ -91,7 +91,12 @@ table{
     margin-top: 100px;
     margin-left: 400px;
     text-align: center;
-
-
-
+}
+.tablas{
+    margin-top: 100px;
+    margin-left: 400px;
+    text-align: center;
+}
+table th{
+    margin-right: 10px;
 }

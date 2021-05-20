@@ -27,7 +27,7 @@ public class ModifyBook extends HttpServlet {
         BookService bookService = new BookService();
         bookService.modifyBook(authorId,null,null,null);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./book.jsp");
     }
 
 }

@@ -16,12 +16,16 @@ public class ModfyEdicionServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        Integer editionId = Integer.parseInt(request.getParameter("editionId"));
+        Integer edition_id = Integer.parseInt(request.getParameter("edition_id"));
+        String descripcion = request.getParameter("descripcion");
+        Integer year = Integer.parseInt(request.getParameter("year"));
+        Integer bookID = Integer.parseInt(request.getParameter("book_id"));
 
         EditionService editionService = new EditionService();
-        editionService.mjodifyEdition(null,null,null,null);
+        editionService.mjodifyEdition(edition_id,descripcion,year);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./Edition.jsp");
+
     }
 
 }

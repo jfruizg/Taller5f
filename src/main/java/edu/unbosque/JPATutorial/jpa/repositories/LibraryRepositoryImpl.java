@@ -47,13 +47,13 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
     @Override
-    public void modificarLibreria(String nuevoNombre, String name) {
-        Library library = entityManager.find(Library.class, name);
+    public void modificarLibreria(Integer id, String name) {
+        Library library = entityManager.find(Library.class, id);
         if (library != null) {
             try {
 
                 entityManager.getTransaction().begin();
-                library.setName(nuevoNombre);
+                library.setName(name);
 
                 entityManager.merge(library);
                 entityManager.getTransaction().commit();
@@ -85,8 +85,8 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
 
-    public void deleteLibrary(String name) {
-        Library library = entityManager.find(Library.class, name);
+    public void deleteLibrary(Integer id) {
+        Library library = entityManager.find(Library.class, id);
 
         if (library != null) {
             try {

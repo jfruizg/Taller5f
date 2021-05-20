@@ -1,5 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: juanf
+  Date: 20/05/2021
+  Time: 12:03 a. m.
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
 <head>
 
     <link href="../styleFormatoDatos.css" rel="stylesheet"/>
@@ -27,13 +33,15 @@
         </nav>
     </div>
 </header>
-    <body>
+<body>
 
-        <form action="../create-library">
+<form action="../delete-edicion">
 
-            Library name: <input type="text" class="form-control" id="name" name="name">
-            <input type="submit" value="Create library!">
-        </form>
+    Edition id: <input type="text" class="form-control" id="id" name="edition_id">
 
-    </body>
+
+    <input type="submit" value="Delete Edition">
+</form>
+
+</body>
 </html>

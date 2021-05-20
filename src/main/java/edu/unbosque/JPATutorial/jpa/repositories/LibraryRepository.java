@@ -15,7 +15,7 @@ public interface LibraryRepository {
 
     Optional<Library> save(Library library);
 
-    void modificarLibreria(String nuevoNombre, String name);
+    void modificarLibreria(Integer id, String name);
 
-    void deleteLibrary(String name);
+    void deleteLibrary(Integer id);
 }

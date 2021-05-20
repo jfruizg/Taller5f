@@ -21,9 +21,8 @@ public class CreateBookServlet extends HttpServlet {
         String title = request.getParameter("title");
         String isbn = request.getParameter("isbn");
         Integer authorId = Integer.parseInt(request.getParameter("author_id"));
-        String genre = request.getParameter("genre");
         String descripcion = request.getParameter("descripcion");
-        String year = request.getParameter("year");
+        Integer year = Integer.parseInt(request.getParameter("year"));
         Integer id =Integer.parseInt(request.getParameter("id"));
 
 
@@ -32,9 +31,9 @@ public class CreateBookServlet extends HttpServlet {
         bookService.saveBook(title, isbn, authorId);
 
         EditionService editionService = new EditionService();
-        editionService.saveEdition(id,descripcion,null,genre);
+        editionService.saveEdition(id,descripcion,year);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./book.jsp");
 
     }
 

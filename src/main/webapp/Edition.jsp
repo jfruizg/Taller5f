@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: juanf
+  Date: 20/05/2021
+  Time: 12:27 a. m.
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -33,25 +40,23 @@
         <h3>Author</h3>
         <ul>
             <br/>
-            <button type="button" class="btn btn-primary" onclick="location.href='Author/form-Author.jsp';">Creat Author</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='Edition/fomr-Edition.jsp';">Creat Edition</button>
 
+            <button type="button" class="btn btn-primary" onclick="location.href='Edition/form-modifyEdition.jsp';">Modify Edition</button>
 
-            <button type="button" class="btn btn-primary" onclick="location.href='Author/form-modifyAuthor.jsp';">Modify Author</button>
-
-            <button type="button" class="btn btn-primary" onclick="location.href='Author/form-deleteAuthor.jsp';">Delete author</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='Edition/fomr.-deleteEdition.jsp';">Delete Edition</button>
 
             <br/>
         </ul>
     </div>
 </main>
 
-<table id="authorsTbl">
+<table id="editorTBL">
     <thead>
     <tr>
-        <th scope="col">id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Country</th>
-        <th scope="col">numBooks</th>
+        <th scope="col">editionId</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">realeseYear</th>
     </tr>
     </thead>
     <tbody>
@@ -116,7 +121,7 @@
     }
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId','name','country','numBooks']);
+    printTable(elementId = 'editorTBL', servlet = 'List-Editions', columns = ['editionId','descripcion','realeseYear']);
 
 </script>
 
