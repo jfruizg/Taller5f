@@ -8,7 +8,8 @@
 
 <form action="./create-edition">
 
-    <input type="hidden" id="bookId" name="bookId" value ="<%= request.getParameter("bookId") %>">
+    bookID : <input type="hidden" id="bookId" name="bookId">
+    <br />
   Descripcion: <input type="text" id="Descripcion" name="Descripcion">
     <br />
   Year: <input type="text" id="Year" name="Year">

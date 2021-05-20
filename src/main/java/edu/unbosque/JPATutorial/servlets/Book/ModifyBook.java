@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "deleteBookServlet" , value = "/modify-Book")
+@WebServlet(name = "deleteBookServlet" , value = "/modify-book")
 public class ModifyBook extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,7 +25,7 @@ public class ModifyBook extends HttpServlet {
         Integer authorId = Integer.parseInt(request.getParameter("id"));
 
         BookService bookService = new BookService();
-        bookService.modifyBook(authorId,null,null);
+        bookService.modifyBook(authorId,null,null,null);
 
         response.sendRedirect("./index.jsp");
     }

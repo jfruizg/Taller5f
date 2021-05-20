@@ -19,7 +19,7 @@ public class DeleteEdition extends HttpServlet {
         Integer editionId = Integer.parseInt(request.getParameter("editionId"));
 
         EditionService editionService = new EditionService();
-        editionService.deleteBookAuthor(editionId,null);
+        editionService.deleteEdition(editionId,null);
 
         response.sendRedirect("./index.jsp");
     }

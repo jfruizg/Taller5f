@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<form action="./delete-Author">
-    Id: <input type="text" id="id" name="id">
+<form action="../delete-Author">
+    Id: <input type="text" id="id" name="AuthorId">
     <input type="submit" value="Delete">
 </form>
 

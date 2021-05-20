@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class EditionService {
     EditionRepositoryImpl editionRepository;
     BookRepository bookRepository;
 
-    public void saveEdition(Integer edition_id, String description, Date releaseYear) {
+    public void saveEdition(Integer edition_id, String description, LocalDate releaseYear, String genre) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -32,7 +33,7 @@ public class EditionService {
 
 
         book.ifPresent(a -> {
-            a.addEdition(new Edition(edition_id, description,releaseYear));
+            a.addEdition(new Edition(edition_id, description,releaseYear,genre));
             bookRepository.save(a);
         });
 
@@ -42,7 +43,7 @@ public class EditionService {
         return;
 
     }
-    public void deleteBookAuthor(Integer edition_id, Edition edition){
+    public void deleteEdition(Integer edition_id, Edition edition){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -66,24 +67,16 @@ public class EditionService {
 
     }
 
-    public void modifyBook(Integer edition_id, Edition edition){
+    public void mjodifyEdition(Integer id,String genre, String descripcion, LocalDate year){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        bookRepository = new BookRepositoryImpl(entityManager);
         editionRepository = new EditionRepositoryImpl(entityManager);
-
-        Optional<Book> book = bookRepository.findById(edition_id);
-
-        book.ifPresent(a -> {
-            a.modifyEdition(edition);
-        });
+        editionRepository.modifyEdition(id,genre,descripcion,year);
 
         entityManager.close();
         entityManagerFactory.close();
-
-        return;
 
     }
 

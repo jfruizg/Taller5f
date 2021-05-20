@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="./create-book">
+<form action="../delete-book">
 
-    Book ISBN: <input type="text" id="isbn" name="isbn">
+    Book ID: <input type="text" id="isbn" name="book_id">
 
     <input type="submit" value="Delete Book">
 </form>

@@ -66,8 +66,7 @@ public class Rent {
     public void setRenting_date(Date renting_date) {
         this.renting_date = renting_date;
     }
-
-
+    
     public void removeEdition(Edition edition){
     }
 

@@ -1,6 +1,7 @@
 package edu.unbosque.JPATutorial.jpa.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
@@ -21,7 +22,10 @@ public class Edition {
     private String description;
 
     @Column(name = "release_year")
-    private Date releaseYear;
+    private LocalDate releaseYear;
+
+    @Column(name = "genre")
+    private String genre;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
@@ -38,15 +42,16 @@ public class Edition {
 
     public Edition() {}
 
-    public Edition(String description, Date releaseYear) {
+    public Edition(String description, LocalDate releaseYear) {
         this.description = description;
         this.releaseYear = releaseYear;
     }
 
-    public Edition(Integer editionId, String description, Date releaseYear) {
+    public Edition(Integer editionId, String description, LocalDate releaseYear, String genre) {
         this.editionId = editionId;
         this.description = description;
         this.releaseYear = releaseYear;
+        this.genre = genre;
     }
 
     public Integer getEditionId() {
@@ -65,11 +70,11 @@ public class Edition {
         this.description = description;
     }
 
-    public Date getReleaseYear() {
+    public LocalDate getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Date releaseYear) {
+    public void setReleaseYear(LocalDate releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -88,6 +93,14 @@ public class Edition {
     public void addLibrary(Library library) {
         libraries.add(library);
         library.getEditions().add(this);
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public void setLibraries(Set<Library> libraries) {

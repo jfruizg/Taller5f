@@ -11,24 +11,19 @@ e contentType="text/html;charset=UTF-8" language="java" %>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
->>>>>>> a10a75ac485a0d3e2d6dfe028493403582cbc90d:src/main/webapp/Library/form-deleteLibrary.jsp
+
 <head>
     <meta charset="UTF-8">
     <title>JPA Tutorial</title>
 </head>
 <body>
 
-<<<<<<< HEAD:src/main/webapp/form-deleteBookA.jsp
-<form action="./delete-book">
-    <input type="hidden" id="authorId" name="authorId" value ="<%= request.getParameter("authorId") %>">
-    Book title: <input type="text" id="title" name="title">
-    <br />
-    Book ISBN: <input type="text" id="isbn" name="isbn">
-    <br />
-    <input type="submit" value="Create book!">
+
+<form action="../modify-library">
+
+    Name: <input type="text" id="title" name="name">
+
 </form>
 
-=======
->>>>>>> a10a75ac485a0d3e2d6dfe028493403582cbc90d:src/main/webapp/Library/form-deleteLibrary.jsp
 </body>
 </html>

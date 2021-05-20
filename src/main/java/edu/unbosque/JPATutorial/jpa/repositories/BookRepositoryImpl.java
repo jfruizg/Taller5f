@@ -50,15 +50,17 @@ public class BookRepositoryImpl implements BookRepository {
         return Optional.empty();
     }
     public void modifyBook(Integer id,String title, String bookISN, String genre) {
-        Book book = entityManager.find(Book.class, bookISN);
+        Book book = entityManager.find(Book.class, id);
         if (book != null) {
             try {
-
                 entityManager.getTransaction().begin();
                book.setTitle(title);
                book.setGenre(genre);
+               book.setIsbn(bookISN);
 
-                entityManager.getTransaction().commit();
+
+               entityManager.merge(book);
+               entityManager.getTransaction().commit();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -66,9 +68,8 @@ public class BookRepositoryImpl implements BookRepository {
         }
 
     }
-    public void deleteBook(String bookISN){
-        Book book = entityManager.find(Book.class, bookISN);
-
+    public void deleteBook(String id){
+        Book book = entityManager.find(Book.class, id);
         if (book != null) {
             try {
 

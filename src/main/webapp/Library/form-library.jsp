@@ -6,7 +6,7 @@
     </head>
     <body>
 
-        <form action="./create-library">
+        <form action="../create-library">
             Library name: <input type="text" id="name" name="name">
             <input type="submit" value="Create library!">
         </form>

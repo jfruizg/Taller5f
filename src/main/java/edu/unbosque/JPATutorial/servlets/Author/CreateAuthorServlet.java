@@ -16,7 +16,6 @@ public class CreateAuthorServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String name = request.getParameter("name");
-
         String country = request.getParameter("country");
 
         AuthorService authorService = new AuthorService();

@@ -6,7 +6,9 @@
 </head>
 <body>
 
-<form action="./create-book">
+<form action="../create-book">
+    A id: <input type="text" id="id" name="id">
+    <br />
      Author id: <input type="text" id="author_id" name="author_id">
     <br />
     Book title: <input type="text" id="title" name="title">

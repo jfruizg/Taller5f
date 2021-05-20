@@ -19,7 +19,7 @@ public class ModfyEdicionServlet extends HttpServlet {
         Integer editionId = Integer.parseInt(request.getParameter("editionId"));
 
         EditionService editionService = new EditionService();
-        editionService.modifyBook(editionId,null);
+        editionService.mjodifyEdition(null,null,null,null);
 
         response.sendRedirect("./index.jsp");
     }

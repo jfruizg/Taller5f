@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="./create-author">
+<form action="../create-author">
     Author name: <input type="text" id="name" name="name">
     <br />
     Author Country: <input type="text" id="country" name="country">

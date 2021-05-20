@@ -15,7 +15,7 @@ public class DeleteAuthorServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        Integer authorId = Integer.parseInt(request.getParameter("authorId"));
+        Integer authorId = Integer.parseInt(request.getParameter("AuthorId"));
 
         AuthorService authorService = new AuthorService();
         authorService.deleteAuthor(authorId);

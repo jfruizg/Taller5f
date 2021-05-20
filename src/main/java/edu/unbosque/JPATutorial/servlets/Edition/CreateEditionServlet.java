@@ -1,6 +1,7 @@
-package edu.unbosque.JPATutorial.servlets.Book;
+package edu.unbosque.JPATutorial.servlets.Edition;
 
 import edu.unbosque.JPATutorial.services.BookService;
+import edu.unbosque.JPATutorial.services.EditionService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "cretateBookServlet", value = "/create-edicion")
+@WebServlet(name = "deleteEditionSerlvet", value = "/create-edicion")
 public class CreateEditionServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
 
-        String title = request.getParameter("title");
-        String isbn = request.getParameter("isbn");
-        Integer authorId = Integer.parseInt(request.getParameter("authorId"));
+        String descripcion = request.getParameter("Descripcion");
+        String isbn = request.getParameter("Year");
+        Integer edition_id = Integer.parseInt(request.getParameter("edition_id"));
 
-        BookService bookService = new BookService();
-        bookService.saveBook(title, isbn, authorId);
+        EditionService editionService = new EditionService();
+        editionService.saveEdition(null,descripcion,null,"");
 
         response.sendRedirect("./index.jsp");
 

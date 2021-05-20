@@ -81,6 +81,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
                 entityManager.getTransaction().begin();
                 author.setCountry(country);
                 author.setName(name);
+                entityManager.merge(author);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {

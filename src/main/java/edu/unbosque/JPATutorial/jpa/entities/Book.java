@@ -8,7 +8,9 @@ import javax.persistence.*;
 @Table(name = "Book") // Optional
 @NamedQueries({
         @NamedQuery(name = "Book.findByTitle",
-                query = "SELECT b FROM Book b WHERE b.title = :title")
+                query = "SELECT b FROM Book b WHERE b.title = :title"),
+        @NamedQuery(name = "Book.findAll",
+                query = "SELECT b FROM Book b")
 })
 public class Book {
 
@@ -101,10 +103,6 @@ public class Book {
     public void deletEdition(Edition edition){
         this.edition.remove(edition);
     }
-    public void modifyEdition(Edition edition){
-        this.edition.remove(edition);
-        this.edition.add(edition);
-        edition.setBook(this);
-    }
+
 
 }

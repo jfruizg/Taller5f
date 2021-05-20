@@ -14,6 +14,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,8 @@ public class BookService {
                     book.getTitle(),
                     Integer.parseInt(book.getIsbn()),
                     book.getAuthor()+"",
-                    book.getEdition()+""
+                    book.getEdition()+"",
+                    book.getBookId()
             ));
         }
         return  booksPOJO;
@@ -71,7 +73,7 @@ public class BookService {
         return;
 
     }
-    public void deleteBookAuthor(Integer isbn, Book book){
+    public void deleteBookAuthor(Integer id){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -79,12 +81,7 @@ public class BookService {
         authorRepository = new AuthorRepositoryImpl(entityManager);
         bookRepository = new BookRepositoryImpl(entityManager);
 
-        Optional<Author> author = authorRepository.findById(isbn);
-
-        author.ifPresent(a -> {
-             a.deletBook(book);
-        });
-
+        Optional<Author> author = authorRepository.findById(id);
 
         entityManager.close();
         entityManagerFactory.close();
@@ -95,16 +92,12 @@ public class BookService {
 
     }
 
-    public void modifyBook(Integer authorId, Object o, Integer isbn){
+    public void modifyBook(Integer id,String title, String bookISN, String genre){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        authorRepository = new AuthorRepositoryImpl(entityManager);
         bookRepository = new BookRepositoryImpl(entityManager);
-
-        Optional<Book> author = bookRepository.findById(isbn);
-
-
+        bookRepository.modifyBook(id,title,bookISN,genre);
 
         entityManager.close();
         entityManagerFactory.close();

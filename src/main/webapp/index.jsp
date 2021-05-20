@@ -24,7 +24,7 @@
     <h3>Author</h3>
     <ul>
         <br/>
-            <button onclick="location.href='Author/form-author.jsp';">Create author</button>
+            <button onclick="location.href='Author/form-Author.jsp';">Create author</button>
 
             <button onclick="location.href='Author/form-modifyAuthor.jsp';">Modify Author</button>
 
@@ -74,9 +74,9 @@
         <br/>
         <button onclick="location.href='Library/form-library.jsp';">Create Librerias</button>
 
-        <button onclick="location.href='Author/form-author.jsp';">modify Librerias</button>
+        <button onclick="location.href='Library/form-modifyLibrary.jsp';">modify Librerias</button>
 
-        <button onclick="location.href='Book/form-deleteBookA.jsp';">Delete Librerias</button>
+        <button onclick="location.href='Library/form-deleteLibrary.jsp';">Delete Librerias</button>
 
         <br/>
     </ul>
@@ -103,8 +103,24 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th># Books</th>
-        <th>Actions</th>
+        <th>Country</th>
+        <th>#books</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<h3>Books</h3>
+
+<table id="bookTbl">
+    <thead>
+    <tr>
+        <th>Ttile</th>
+        <th>ISB</th>
+        <th>Author id</th>
+        <th>Genre</th>
+
     </tr>
     </thead>
     <tbody>
@@ -144,17 +160,17 @@
                     if (actions.includes('delete-author')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
+                       // action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
                         var text = document.createTextNode('Delete author');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
 
-                    if (actions.includes('delete-book')) {
+                    if (actions.includes('create-book')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        // action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
-                        var text = document.createTextNode('Delete book');
+                       //  action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('creat edicion');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
@@ -173,7 +189,9 @@
     printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name','country' ,'numBooks']);
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId','name','country','numBooks']);
+
+    printTable(elementId = 'bookTbl', servlet = 'List-books', columns = ['Title','ISB','Author id','Genre']);
 
 </script>
 

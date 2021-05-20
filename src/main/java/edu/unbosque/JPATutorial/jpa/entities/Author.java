@@ -33,9 +33,10 @@ public class Author {
         this.country = country;
     }
 
-    public Author(Integer authorId, String name) {
+    public Author(Integer authorId, String name, String country) {
         this.authorId = authorId;
         this.name = name;
+        this.country = country;
     }
 
     public String getCountry() {
