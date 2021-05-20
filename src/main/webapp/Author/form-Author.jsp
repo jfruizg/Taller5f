@@ -31,9 +31,9 @@
 <body>
 
 <form action="../create-author">
-    Author name: <input type="text" class="form-control" id="name" name="name">
+    Author name: <input type="text" class="form-control" id="name_author" name="name">
     <br />
-    Author Country: <input type="text" class="form-control" id="country" name="country">
+    Author Country: <input type="text" class="form-control" id="country_author" name="country">
     <br />
     <input type="submit" value="Create author!">
 </form>

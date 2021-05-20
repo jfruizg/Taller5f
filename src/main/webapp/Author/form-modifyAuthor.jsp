@@ -31,7 +31,7 @@
 <body>
 
 <form action="../modify-Author">
-    Id: <input type="text" id="id" class="form-control" name="id">
+    Id: <input type="text" id="id" class="form-control" name="id_author">
     <br />
     Name: <input type="text" id="name" class="form-control" name="name">
     <br />

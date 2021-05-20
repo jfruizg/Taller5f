@@ -9,12 +9,14 @@ import edu.unbosque.JPATutorial.jpa.repositories.CustomerRepositoryImpI;
 import edu.unbosque.JPATutorial.servlets.pojos.AuthorPOJO;
 import edu.unbosque.JPATutorial.servlets.pojos.CustomerPOJO;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 public class CustomerServices {
 
     CustomerRepository customerRepository;
@@ -41,11 +43,13 @@ public class CustomerServices {
             ));
         }
 
+
+
         return customerPOJOS;
 
     }
 
-    public Customer saveAuthor(String email, String first_name,String last_name,String gender,String age) {
+    public Customer saveCustomer(String email, String first_name,String last_name,String gender,String age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -62,7 +66,7 @@ public class CustomerServices {
 
     }
 
-    public void deleteAuthor(String authorId) {
+    public void deleteCustomer(String authorId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -75,7 +79,7 @@ public class CustomerServices {
         entityManagerFactory.close();
 
     }
-    public void modifyAuthor(String email, String first_name,String last_name,String gender,String age){
+    public void modifyCustomer(String email, String first_name,String last_name,String gender,String age){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

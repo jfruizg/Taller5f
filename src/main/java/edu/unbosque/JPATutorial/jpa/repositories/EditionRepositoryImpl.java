@@ -1,9 +1,6 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
-import edu.unbosque.JPATutorial.jpa.entities.Author;
-import edu.unbosque.JPATutorial.jpa.entities.Book;
-import edu.unbosque.JPATutorial.jpa.entities.Edition;
-import edu.unbosque.JPATutorial.jpa.entities.Rent;
+import edu.unbosque.JPATutorial.jpa.entities.*;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
@@ -16,25 +13,35 @@ public class EditionRepositoryImpl implements EditionRepository {
 
     public EditionRepositoryImpl(EntityManager entityManager){this.entityManager = entityManager;}
 
-    public Optional<Edition> findById(Integer id) {
-        Edition edition = entityManager.find(Edition.class, id);
-        return edition != null ? Optional.of(edition) : Optional.empty();
+    public Optional<Edition> findById(Integer library_id){
+        Edition library = entityManager.find(Edition.class, library_id);
+        return library != null ? Optional.of(library) : Optional.empty();
     }
 
-    public List<Edition> findAll() {return entityManager.createQuery("from Edition ").getResultList();}
+    @Override
+    public Optional<Edition> findbyEmail(Integer name) {
+        Edition library = entityManager.find(Edition.class, name);
+        return library != null ? Optional.of(library) : Optional.empty();
+    }
+
+    @Override
+    public List<Edition> findAll() {
+        return entityManager.createQuery("from Edition ").getResultList();
+    }
+
 
     public Optional<Edition> save(Edition edition) {
-        try{
+        try {
             entityManager.getTransaction().begin();
             entityManager.persist(edition);
             entityManager.getTransaction().commit();
             return Optional.of(edition);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Optional.empty();
     }
+
 
     @Override
     public void deleteEdition(Integer id) {

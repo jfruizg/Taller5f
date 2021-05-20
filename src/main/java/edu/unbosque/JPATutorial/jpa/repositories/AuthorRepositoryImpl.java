@@ -51,16 +51,12 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     @Override
     public void deleteById(Integer id) {
         Author author = entityManager.find(Author.class, id);
-        Book book2 =  entityManager.find(Book.class, author.getBooks());
+
         if (author != null) {
             try {
 
                 entityManager.getTransaction().begin();
 
-                book2.getEdition().forEach(edition->{
-                    entityManager.remove(edition);
-
-                });
                 author.getBooks().forEach(book -> {
                     entityManager.remove(book);
                 });

@@ -8,6 +8,7 @@ public class CustomerPOJO {
     private String gender;
     private String age;
 
+
     public CustomerPOJO(String email, String first_name, String last_name, String gender, String age) {
         this.email = email;
         this.first_name = first_name;

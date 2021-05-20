@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "modifyAuthorServlet", value = "/modify-Author")
+@WebServlet(name = "ModifyAuthorServlet", value = "/modify-Author")
 public class ModifyAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
 
-        Integer authorId = Integer.parseInt(request.getParameter("id"));
+        Integer authorId = Integer.parseInt(request.getParameter("id_author"));
 
         String name = request.getParameter("name");
 

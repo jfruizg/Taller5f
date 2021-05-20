@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "deleteBookServlet" , value = "/modify-book")
+@WebServlet(name = "ModifyBook" , value = "/modify-book")
 public class ModifyBook extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

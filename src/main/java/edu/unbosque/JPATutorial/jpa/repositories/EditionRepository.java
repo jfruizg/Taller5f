@@ -13,6 +13,8 @@ public interface EditionRepository {
 
     Optional<Edition> save(Edition edition);
 
+    Optional<Edition>findbyEmail(Integer name);
+
     void deleteEdition(Integer id);
 
     void modifyEdition(Integer id, String descripcion, Integer year);

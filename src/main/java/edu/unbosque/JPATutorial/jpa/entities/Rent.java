@@ -5,10 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Rent")
-@NamedQueries({
-        @NamedQuery(name = "rent.findAll",
-                query = "SELECT b FROM Rent b")
-})
+
 public class Rent {
 
 
@@ -26,11 +23,11 @@ public class Rent {
     private Edition edition_id;
 
     @Column(name = "renting_date")
-    private Date renting_date;
+    private String renting_date;
 
     public Rent() {}
 
-    public Rent(Integer rent_id, Date renting_date) {
+    public Rent(Integer rent_id, String renting_date) {
         this.rent_id = rent_id;
         this.renting_date = renting_date;
     }
@@ -59,14 +56,14 @@ public class Rent {
         this.edition_id = edition_id;
     }
 
-    public Date getRenting_date() {
+    public String getRenting_date() {
         return renting_date;
     }
 
-    public void setRenting_date(Date renting_date) {
+    public void setRenting_date(String renting_date) {
         this.renting_date = renting_date;
     }
-    
+
     public void removeEdition(Edition edition){
     }
 

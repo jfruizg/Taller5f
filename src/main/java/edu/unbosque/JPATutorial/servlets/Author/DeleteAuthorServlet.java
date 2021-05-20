@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "deleteAuthorServlet", value = "/delete-Author")
+@WebServlet(name = "DeleteAuthorServlet", value = "/delete-Author")
 public class DeleteAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

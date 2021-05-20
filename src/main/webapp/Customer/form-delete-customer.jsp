@@ -33,7 +33,7 @@
         </nav>
     </div>
 </header>
-<form action="../modify-edicion">
+<form action="../delete-edicion">
 
     email: <input type="text" class="form-control" id="email" name="email">
 

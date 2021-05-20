@@ -39,13 +39,8 @@ public class Edition {
 
     public Edition() {}
 
-    public Edition(String description, Integer releaseYear) {
-        this.description = description;
-        this.releaseYear = releaseYear;
-    }
-
     public Edition(Integer edition_id, String description, Integer releaseYear) {
-        this.editionId = editionId;
+        this.editionId = edition_id;
         this.description = description;
         this.releaseYear = releaseYear;
     }

@@ -7,10 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Customer") // Optional
-@NamedQueries({
-        @NamedQuery(name = "Customer.findByName",
-                query = "SELECT a FROM Customer a WHERE a.first_name = :name")
-})
+
 
 public class Customer {
 

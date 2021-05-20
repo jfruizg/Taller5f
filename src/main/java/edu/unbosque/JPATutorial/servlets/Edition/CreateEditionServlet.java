@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "deleteEditionSerlvet", value = "/creat-edicion")
+@WebServlet(name = "CreateEditionServlet", value = "/creat-edicion")
 public class CreateEditionServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -19,7 +19,6 @@ public class CreateEditionServlet extends HttpServlet {
         Integer edition_id = Integer.parseInt(request.getParameter("edition_id"));
         String descripcion = request.getParameter("descripcion");
         Integer year = Integer.parseInt(request.getParameter("year"));
-
 
 
         EditionService editionService = new EditionService();

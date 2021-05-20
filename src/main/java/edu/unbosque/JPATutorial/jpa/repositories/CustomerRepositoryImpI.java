@@ -1,9 +1,6 @@
 package edu.unbosque.JPATutorial.jpa.repositories;
 
-import edu.unbosque.JPATutorial.jpa.entities.Author;
-import edu.unbosque.JPATutorial.jpa.entities.Book;
-import edu.unbosque.JPATutorial.jpa.entities.Customer;
-import edu.unbosque.JPATutorial.jpa.entities.Edition;
+import edu.unbosque.JPATutorial.jpa.entities.*;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -17,21 +14,22 @@ public class CustomerRepositoryImpI implements CustomerRepository{
         this.entityManager = entityManager;
     }
 
-    public Optional<Customer> findById(String id) {
-        Customer customer = entityManager.find(Customer.class, id);
-        return customer != null ? Optional.of(customer) : Optional.empty();
+    public Optional<Customer> findById(String library_id){
+        Customer library = entityManager.find(Customer.class, library_id);
+        return library != null ? Optional.of(library) : Optional.empty();
     }
 
+    @Override
+    public Optional<Customer> findbyEmail(String name) {
+        Customer library = entityManager.find(Customer.class, name);
+        return library != null ? Optional.of(library) : Optional.empty();
+    }
+
+    @Override
     public List<Customer> findAll() {
-        return entityManager.createQuery("from Author").getResultList();
+        return entityManager.createQuery("from Customer ").getResultList();
     }
 
-    public Optional<Author> findByName(String name) {
-        Author author = entityManager.createNamedQuery("Customer.findByName", Author.class)
-                .setParameter("name", name)
-                .getSingleResult();
-        return author != null ? Optional.of(author) : Optional.empty();
-    }
 
     public Optional<Customer> save(Customer customer) {
         try {

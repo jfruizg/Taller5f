@@ -30,7 +30,7 @@
 <body>
 
 <form action="../delete-Author">
-    Id: <input type="text" id="id"  class="form-control" name="AuthorId">
+    Id: <input type="text" id="id_author"  class="form-control" name="AuthorId">
     <input type="submit" value="Delete">
 </form>
 

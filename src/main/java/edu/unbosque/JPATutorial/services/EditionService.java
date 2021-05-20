@@ -31,6 +31,7 @@ public class EditionService {
         entityManager.close();
         entityManagerFactory.close();
         List<EditionPOJO> editionPOJO = new ArrayList<>();
+
         for (Edition edition: editions){
             editionPOJO.add(new EditionPOJO(
                     edition.getEditionId(),

@@ -31,7 +31,7 @@ public class CreateBookServlet extends HttpServlet {
         bookService.saveBook(title, isbn, authorId);
 
         EditionService editionService = new EditionService();
-        editionService.saveEdition(id,descripcion,year);
+       // editionService.saveEdition(id,descripcion,year);
 
         response.sendRedirect("./book.jsp");
 
